@@ -1,85 +1,46 @@
 import React, { useState } from 'react';
-
-// Sample AI Tools Data
-const aiTools = [
-  {
-    category: 'Meeting Assistants',
-    tools: [
-      { name: 'Circleback', description: 'Accurate meeting transcripts and summaries.' },
-      { name: 'Krisp', description: 'Meeting transcription and summaries.' },
-      { name: 'Granola', description: 'Enhanced note-taking for manual users.' },
-    ],
-  },
-  {
-    category: 'Task Management',
-    tools: [
-      { name: 'Zapier Chatbots', description: 'Custom AI bots for task management.' },
-      { name: 'Sunsama', description: 'Integrated task and schedule organizer.' },
-      { name: 'Todoist', description: 'AI-powered task prioritization.' },
-    ],
-  },
-  {
-    category: 'Creative Tools',
-    tools: [
-      { name: 'Craiyon', description: 'Image generation from text prompts.' },
-      { name: 'PicsArt AI Writer', description: 'AI-enhanced writing assistance.' },
-    ],
-  },
-  {
-    category: 'Virtual Assistants',
-    tools: [
-      { name: 'Siri', description: 'Voice-controlled assistant from Apple.' },
-      { name: 'Alexa', description: 'Amazon’s smart assistant for tasks.' },
-      { name: 'Google Assistant', description: 'Google-powered voice assistant.' },
-    ],
-  },
-  {
-    category: 'Transcription Services',
-    tools: [
-      { name: 'Otter', description: 'Real-time transcription and summaries.' },
-      { name: 'Temi', description: 'Quick, affordable transcription.' },
-      { name: 'Rev', description: 'AI and human transcription services.' },
-    ],
-  },
-];
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 export const Tools = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredTools = aiTools.map(category => ({
-    ...category,
-    tools: category.tools.filter(tool =>
-      tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
-  }));
+    const data = [
+        { title: 'Copilot', value: 'increasing productivity in writing tasks', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Microsoft_365_Copilot_Icon.svg/2048px-Microsoft_365_Copilot_Icon.svg.png', color: '#edf1fc' },
+        { title: 'NotebookLM', value: 'deeply analyzing and summarizing existing documents, notes, and research materials', icon: 'https://www.insightplatforms.com/wp-content/uploads/2024/06/NotebookLM-Logo-Square-Insight-Platforms-300x300.png', color: '#ebf8ff' },
+        { title: 'Claude AI', value: 'conversational interactions, document summarization, question answering, creative writing, code generation, research assistance', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg', color: '#fff0f0' },
+        { title: 'Fireflies', value: 'meeting assistant that automatically records, transcribes, summarizes, and analyzes meetings', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Firefly_logo.png/1280px-Firefly_logo.png', color: '#e7fcf7' },
+        { title: 'Starryai', value: 'art generator that can transform a simple text prompt into an image.', icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DBt53aeGp46ZZaZDJz4sjxwnSdBlI3MRIg&s', color: '#edf1fc' }
+    ];
+
+    const filteredData = data.filter(item =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="Tools">
-      <nav className="navbar">
-        <h1>AI Tools Directory</h1>
-        <input
-          type="text"
-          placeholder="Search AI Tools..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </nav>
-      <div className="columns-container">
-        {filteredTools.map((category) => (
-          <div key={category.category} className="column">
-            <h2>{category.category}</h2>
-            <ul>
-              {category.tools.map((tool) => (
-                <li key={tool.name}>
-                  <strong>{tool.name}</strong>: {tool.description}
-                </li>
-              ))}
-            </ul>
+      <div className="container mt-5">
+          <div className="row justify-content-center mb-4">
+              <div className="col-md-6">
+                  <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Search..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+              </div>
           </div>
-        ))}
+          <div className="row justify-content-center">
+              {filteredData.map((item, index) => (
+                  <div key={index} className="col-md-2 col-sm-4 mb-4">
+                      <div className="card text-center p-4 shadow-sm" style={{ backgroundColor: item.color }}>
+                          <div className="icon mb-3" style={{ fontSize: '2rem' }}>
+                              <img src={item.icon} alt={`${item.title} icon`} style={{ width: '50px', height: '50px' }} />
+                          </div>
+                          <h5 className="card-title">{item.title}</h5>
+                          <p className="card-value">{item.value}</p>
+                      </div>
+                  </div>
+              ))}
+          </div>
       </div>
-    </div>
   );
-}
-
+};
