@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .App {
+  text-align: center;
+} */
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  margin-right: auto;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 1rem;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+/* Main Content Styles */
+main {
+  padding: 2rem;
+}
+
+/* Tutorial Page Styles */
+.Tutorial {
+  display: flex;
+  height: 100%;
+}
+
+.t-navbar {
+  width: 20%;
+  background-color: #f4f4f9;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  height: 100vh; /* Fill the height of the page */
+  position: fixed; /* Fix the position */
+}
+
+.t-navbar h1 {
+  margin-bottom: 1rem;
+}
+
+.t-nav-list {
+  list-style: none;
+  padding: 0;
+}
+
+.t-nav-item {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+
+.t-nav-item:hover,
+.t-nav-item.active {
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.t-content {
+  margin-left: 20%; /* Adjust for the fixed sidebar */
+  width: 80%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align content to flex-start */
+}
+
+.t-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
