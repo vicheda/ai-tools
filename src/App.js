@@ -13,8 +13,9 @@ export default function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route path="/Tools" element={<Tools />}></Route>
-          <Route path="/Tutorial" element={<Tutorial />}></Route>
+          <Route path="/" element={<Tutorial />} />
+          <Route path="/Tools" element={<Tools />} />
+          <Route path="/Tutorial" element={<Tutorial />} />
         </Routes>
       </div>
     </BrowserRouter>
